@@ -56,7 +56,7 @@ final class NativeReferenceQueue<T> extends ReferenceQueue<T> {
     @Override
     boolean enqueue(Reference<? extends T> r) {
         synchronized(lock) {
-            return enqueue0(r);
+            return super.enqueue0(r);
         }
     }
 
@@ -66,7 +66,7 @@ final class NativeReferenceQueue<T> extends ReferenceQueue<T> {
             return null;
 
         synchronized(lock) {
-            return poll0();
+            return super.poll0();
         }
     }
 
@@ -76,17 +76,17 @@ final class NativeReferenceQueue<T> extends ReferenceQueue<T> {
         if (timeout < 0)
             throw new IllegalArgumentException("Negative timeout value");
         if (timeout == 0)
-            return remove();
+            return super.remove();
 
         synchronized(lock) {
-            return remove0(timeout);
+            return super.remove0(timeout);
         }
     }
 
     @Override
     public Reference<? extends T> remove() throws InterruptedException {
         synchronized(lock) {
-            return remove0();
+            return super.remove0();
         }
     }
 }
