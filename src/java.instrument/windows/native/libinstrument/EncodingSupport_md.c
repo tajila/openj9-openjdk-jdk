@@ -59,6 +59,8 @@ convertUft8ToPlatformString(char* utf8_str, int utf8_len, char* platform_str, in
     wlen = MultiByteToWideChar(CP_UTF8, 0, utf8_str, utf8_len, NULL, 0);
     if (wlen > 0) {
         wstr = (WCHAR*)malloc(wlen * sizeof(WCHAR));
+                                 printf(" !j9x 0x%p,0x%zX %s\n", wstr, wlen * sizeof(WCHAR), "EncodingSupport_md.c:62");
+
         if (wstr != NULL) {
             if (MultiByteToWideChar(CP_UTF8,
                                     0,

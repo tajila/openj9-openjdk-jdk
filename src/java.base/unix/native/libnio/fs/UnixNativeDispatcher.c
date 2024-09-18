@@ -1329,6 +1329,8 @@ Java_sun_nio_fs_UnixNativeDispatcher_getpwuid(JNIEnv* env, jclass this, jint uid
     if (buflen == -1)
         buflen = ENT_BUF_SIZE;
     pwbuf = (char*)malloc(buflen);
+                                        printf(" !j9x 0x%p,0x%zX %s\n", pwbuf,(size_t) buflen, "UnixNativeDispather.c:1332");
+
     if (pwbuf == NULL) {
         JNU_ThrowOutOfMemoryError(env, "native heap");
     } else {
@@ -1376,6 +1378,8 @@ Java_sun_nio_fs_UnixNativeDispatcher_getgrgid(JNIEnv* env, jclass this, jint gid
         int res = 0;
 
         char* grbuf = (char*)malloc(buflen);
+                                                printf(" !j9x 0x%p,0x%zX %s\n", grbuf,(size_t) buflen, "UnixNativeDispather.c:1381");
+
         if (grbuf == NULL) {
             JNU_ThrowOutOfMemoryError(env, "native heap");
             return NULL;
@@ -1424,6 +1428,8 @@ Java_sun_nio_fs_UnixNativeDispatcher_getpwnam0(JNIEnv* env, jclass this,
     if (buflen == -1)
         buflen = ENT_BUF_SIZE;
     pwbuf = (char*)malloc(buflen);
+                                                    printf(" !j9x 0x%p,0x%zX %s\n", pwbuf,(size_t) buflen, "UnixNativeDispather.c:1431");
+
     if (pwbuf == NULL) {
         JNU_ThrowOutOfMemoryError(env, "native heap");
     } else {
@@ -1471,6 +1477,8 @@ Java_sun_nio_fs_UnixNativeDispatcher_getgrnam0(JNIEnv* env, jclass this,
         const char* name = (const char*)jlong_to_ptr(nameAddress);
 
         grbuf = (char*)malloc(buflen);
+                                                    printf(" !j9x 0x%p,0x%zX %s\n", grbuf,(size_t) buflen, "UnixNativeDispather.c:1480");
+
         if (grbuf == NULL) {
             JNU_ThrowOutOfMemoryError(env, "native heap");
             return -1;

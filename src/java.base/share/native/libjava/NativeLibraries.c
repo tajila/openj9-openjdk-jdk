@@ -96,6 +96,8 @@ static void *findJniFunction(JNIEnv *env, void *handle,
             goto done;
         }
         jniFunctionName = malloc(len);
+                        printf(" !j9x 0x%p,0x%zX %s\n", jniFunctionName,(size_t) len, "NativeLibraries.c:99");
+
         if (jniFunctionName == NULL) {
             JNU_ThrowOutOfMemoryError(env, NULL);
             goto done;
@@ -293,6 +295,8 @@ Java_jdk_internal_loader_NativeLibraries_findBuiltinLib
         return NULL;
     }
     libName = malloc(len + 1); //+1 for null if prefix+suffix == 0
+                            printf(" !j9x 0x%p,0x%zX %s\n", libName, (size_t)len + 1, "NativeLibraries.c:298");
+
     if (libName == NULL) {
         JNU_ReleaseStringPlatformChars(env, name, cname);
         JNU_ThrowOutOfMemoryError(env, NULL);

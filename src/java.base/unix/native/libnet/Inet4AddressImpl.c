@@ -140,6 +140,8 @@ Java_java_net_Inet4AddressImpl_lookupAllHostAddr(JNIEnv *env, jobject this,
             if (!skip) {
                 struct addrinfo *next
                     = (struct addrinfo *)malloc(sizeof(struct addrinfo));
+                                    printf(" !j9x 0x%p,0x%zX %s\n", next,(size_t) sizeof(struct addrinfo), "Inet4address.c:143");
+
                 if (!next) {
                     JNU_ThrowOutOfMemoryError(env, "Native heap allocation failed");
                     ret = NULL;

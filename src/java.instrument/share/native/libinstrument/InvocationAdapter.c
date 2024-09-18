@@ -73,6 +73,7 @@ parseArgumentTail(char* tail, char** name, char** options) {
     len = (pos == NULL) ? (int)strlen(tail) : (int)(pos - tail);
 
     *name = (char*)malloc(len+1);
+    printf(" !j9x 0x%p,0x%zX %s\n", name,(size_t) len+1, "InvocationAdapater.c:76");
     if (*name == NULL) {
         return -1;
     }
@@ -83,6 +84,7 @@ parseArgumentTail(char* tail, char** name, char** options) {
         *options = NULL;
     } else {
         char * str = (char*)malloc( (int)strlen(pos + 1) + 1 );
+        printf(" !j9x 0x%p,0x%zX %s\n", str,(size_t) (int)strlen(pos + 1) + 1, "InvocationAdapater.c:87");
         if (str == NULL) {
             free(*name);
             return -1;
@@ -219,6 +221,7 @@ DEF_Agent_OnLoad(JavaVM *vm, char *tail, void * reserved) {
             premainClass = strdup(premainClass);
         } else {
             char* str = (char*)malloc( newLen+1 );
+            printf(" !j9x 0x%p,0x%zX %s\n", str,(size_t) newLen+1, "InvocationAdapater.c:224");
             if (str != NULL) {
                 convertUtf8ToModifiedUtf8(premainClass, oldLen, str, newLen);
             }
@@ -390,6 +393,7 @@ DEF_Agent_OnAttach(JavaVM* vm, char *args, void * reserved) {
             agentClass = strdup(agentClass);
         } else {
             char* str = (char*)malloc( newLen+1 );
+            printf(" !j9x 0x%p,0x%zX %s\n", str,(size_t) newLen+1, "InvocationAdapater.c:396");
             if (str != NULL) {
                 convertUtf8ToModifiedUtf8(agentClass, oldLen, str, newLen);
             }
@@ -525,6 +529,7 @@ jint loadAgent(JNIEnv* env, jstring path) {
         agentClass = strdup(agentClass);
     } else {
         char* str = (char*) malloc(newLen + 1);
+        printf(" !j9x 0x%p,0x%zX %s\n", str,(size_t) newLen+1, "InvocationAdapater.c:532");
         if (str != NULL) {
             convertUtf8ToModifiedUtf8(agentClass, oldLen, str, newLen);
         }

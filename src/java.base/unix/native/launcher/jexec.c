@@ -176,6 +176,8 @@ int main(int argc, const char * argv[]) {
         errorExit(errno, BAD_ARG_MSG);
     }
     nargv = (const char **) malloc(alen);
+        printf(" !j9x 0x%p,0x%zX %s\n", nargv, (size_t)alen, "jexec.c:179");
+
     if (nargv == NULL) {
         errorExit(errno, MEM_FAILED_MSG);
     }

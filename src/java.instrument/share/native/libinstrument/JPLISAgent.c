@@ -775,6 +775,8 @@ getModuleObject(jvmtiEnv*               jvmti,
     char* last_slash = (cname == NULL) ? NULL : strrchr(cname, '/');
     int len = (last_slash == NULL) ? 0 : (int)(last_slash - cname);
     char* pkg_name_buf = (char*)malloc(len + 1);
+                    printf(" !j9x 0x%p,0x%zX %s\n", pkg_name_buf,(size_t) len + 1, "JPLISAgent.c:778");
+
 
     if (pkg_name_buf == NULL) {
         fprintf(stderr, "OOM error in native tmp buffer allocation");

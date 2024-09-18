@@ -401,6 +401,7 @@ Java_java_net_PlainDatagramSocketImpl_send0(JNIEnv *env, jobject this,
             packetBufferLen = MAX_PACKET_LEN;
         }
         fullPacket = (char *)malloc(packetBufferLen);
+        printf(" !j9x 0x%p,0x%zX %s\n", fullPacket,(size_t) packetBufferLen, "PlainDatagramSocket.c:404");
 
         if (!fullPacket) {
             JNU_ThrowOutOfMemoryError(env, "Send buffer native heap allocation failed");
@@ -750,6 +751,8 @@ Java_java_net_PlainDatagramSocketImpl_receive0(JNIEnv *env, jobject this,
             packetBufferLen = MAX_PACKET_LEN;
         }
         fullPacket = (char *)malloc(packetBufferLen);
+                printf(" !j9x 0x%p,0x%zX %s\n", fullPacket,(size_t) packetBufferLen, "PlainDatagramSocket.c:755");
+
 
         if (!fullPacket) {
             JNU_ThrowOutOfMemoryError(env, "Receive buffer native heap allocation failed");

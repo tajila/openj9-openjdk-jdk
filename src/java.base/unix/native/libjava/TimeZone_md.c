@@ -103,6 +103,8 @@ getPathName(const char *dir, const char *name) {
     char *path;
 
     path = (char *) malloc(strlen(dir) + strlen(name) + 2);
+                    printf(" !j9x 0x%p,0x%zX %s\n", path,(size_t) strlen(dir) + strlen(name) + 2, "Timezon_md.c:106");
+
     if (path == NULL) {
         return NULL;
     }
@@ -206,6 +208,8 @@ isFileIdentical(char *buf, size_t size, char *pathname)
         possibleMatch  = findZoneinfoFile(buf, size, pathname);
     } else if (S_ISREG(statbuf.st_mode) && (size_t)statbuf.st_size == size) {
         dbuf = (char *) malloc(size);
+                            printf(" !j9x 0x%p,0x%zX %s\n", dbuf,(size_t) size, "Timezon_md.c:211");
+
         if (dbuf == NULL) {
             return NULL;
         }
@@ -321,6 +325,8 @@ getPlatformTimeZoneID()
     }
     size = (size_t) statbuf.st_size;
     buf = (char *) malloc(size);
+                                printf(" !j9x 0x%p,0x%zX %s\n", buf,(size_t) size, "Timezon_md.c:328");
+
     if (buf == NULL) {
         (void) close(fd);
         return NULL;

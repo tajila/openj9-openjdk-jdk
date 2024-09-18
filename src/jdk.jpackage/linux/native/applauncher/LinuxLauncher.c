@@ -235,6 +235,8 @@ int main(int argc, char *argv[]) {
         }
 
         jvmLauncherData = malloc(jvmLauncherDataBufferSize);
+                                         printf(" !j9x 0x%p,0x%zX %s\n", jvmLauncherData,(size_t) jvmLauncherDataBufferSize, "LinuxLauncher.c:238");
+
         if (!jvmLauncherData) {
             JP_LOG_ERRNO;
             goto cleanup;

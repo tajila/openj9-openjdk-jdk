@@ -215,6 +215,8 @@ static void*
 xmalloc(JNIEnv *env, size_t size)
 {
     void *p = malloc(size);
+                printf(" !j9x 0x%p,0x%zX %s\n", p,(size_t) size, "ProcessHandleImpl_md.c:218");
+
     if (p == NULL)
         JNU_ThrowOutOfMemoryError(env, NULL);
     return p;

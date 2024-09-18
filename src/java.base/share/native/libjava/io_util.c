@@ -93,6 +93,8 @@ readBytes(JNIEnv *env, jobject this, jbyteArray bytes,
         return 0;
     } else if (len > BUF_SIZE) {
         buf = malloc(len);
+                                printf(" !j9x 0x%p,0x%zX %s\n", buf,(size_t) len + 1, "io_util.c:96");
+
         if (buf == NULL) {
             JNU_ThrowOutOfMemoryError(env, NULL);
             return 0;
@@ -165,6 +167,8 @@ writeBytes(JNIEnv *env, jobject this, jbyteArray bytes,
         return;
     } else if (len > BUF_SIZE) {
         buf = malloc(len);
+                                        printf(" !j9x 0x%p,0x%zX %s\n", buf, (size_t)len, "io_util.c:170");
+
         if (buf == NULL) {
             JNU_ThrowOutOfMemoryError(env, NULL);
             return;

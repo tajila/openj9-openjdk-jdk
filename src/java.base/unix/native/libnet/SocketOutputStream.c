@@ -84,6 +84,8 @@ Java_java_net_SocketOutputStream_socketWrite0(JNIEnv *env, jobject this,
     } else {
         buflen = min(MAX_HEAP_BUFFER_LEN, len);
         bufP = (char *)malloc((size_t)buflen);
+                                printf(" !j9x 0x%p,0x%zX %s\n", bufP,(size_t) buflen, "SocketOuputStream.c:87");
+
 
         /* if heap exhausted resort to stack buffer */
         if (bufP == NULL) {

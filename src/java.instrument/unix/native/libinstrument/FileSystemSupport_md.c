@@ -42,6 +42,8 @@ char* basePath(const char* path) {
     } else {
         int len = last - path;
         char* str = (char*)malloc(len+1);
+                            printf(" !j9x 0x%p,0x%zX %s\n", str,(size_t) len + 1, "FileSystemSupport_md.c:45");
+
         if (str == NULL) {
             fprintf(stderr, "OOM error in native tmp buffer allocation");
             return NULL;
@@ -76,6 +78,8 @@ static char* normalizePath(const char* pathname, int len, int off) {
     if (n == 0) return strdup("/");
 
     sb = (char*)malloc(strlen(pathname)+1);
+                                printf(" !j9x 0x%p,0x%zX %s\n", sb,(size_t) strlen(pathname)+1, "FileSystemSupport_md.c:81");
+
     if (sb == NULL) {
         fprintf(stderr, "OOM error in native tmp buffer allocation");
         return NULL;
@@ -128,6 +132,7 @@ char* resolve(const char* parent, const char* child) {
     len = parentEnd + cn - childStart;
     if (child[0] == slash) {
         theChars = (char*)malloc(len+1);
+         printf(" !j9x 0x%p,0x%zX %s\n", theChars,(size_t) len+1, "FileSystemSupport_md.c:135");
         if (theChars == NULL) {
             fprintf(stderr, "OOM error in native tmp buffer allocation");
             return NULL;
@@ -139,6 +144,8 @@ char* resolve(const char* parent, const char* child) {
         theChars[len] = '\0';
     } else {
         theChars = (char*)malloc(len+2);
+                 printf(" !j9x 0x%p,0x%zX %s\n", theChars,(size_t) len+2, "FileSystemSupport_md.c:147");
+
         if (theChars == NULL) {
             fprintf(stderr, "OOM error in native tmp buffer allocation");
             return NULL;
@@ -158,6 +165,8 @@ char* fromURIPath(const char* path) {
     if (len > 1 && path[len-1] == slash) {
         // "/foo/" --> "/foo", but "/" --> "/"
         char* str = (char*)malloc(len);
+                         printf(" !j9x 0x%p,0x%zX %s\n", str,(size_t) len, "FileSystemSupport_md.c:168");
+
         if (str == NULL)
         {
             fprintf(stderr, "OOM error in native tmp buffer allocation");

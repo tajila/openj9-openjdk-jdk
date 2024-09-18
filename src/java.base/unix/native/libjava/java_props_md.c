@@ -112,6 +112,8 @@ static int ParseLocale(JNIEnv* env, int cat, char ** std_language, char ** std_s
     }
 
     temp = malloc(strlen(lc) + 1);
+                    printf(" !j9x 0x%p,0x%zX %s\n", temp, (size_t)strlen(lc) + 1, "java_props_md.c:115");
+
     if (temp == NULL) {
 #ifdef MACOSX
         free(lc); // malloced memory
@@ -143,6 +145,7 @@ static int ParseLocale(JNIEnv* env, int cat, char ** std_language, char ** std_s
     }
 
     temp = malloc(strlen(lc) + 1);
+    printf(" !j9x 0x%p,0x%zX %s\n", temp, (size_t)strlen(lc) + 1, "java_props_md.c:148");
     if (temp == NULL) {
         JNU_ThrowOutOfMemoryError(env, NULL);
         return 0;
@@ -175,6 +178,8 @@ static int ParseLocale(JNIEnv* env, int cat, char ** std_language, char ** std_s
      */
 
     encoding_variant = malloc(strlen(temp)+1);
+        printf(" !j9x 0x%p,0x%zX %s\n", encoding_variant, (size_t)strlen(temp)+1, "java_props_md.c:181");
+
     if (encoding_variant == NULL) {
         free(temp);
         JNU_ThrowOutOfMemoryError(env, NULL);
@@ -238,6 +243,8 @@ static int ParseLocale(JNIEnv* env, int cat, char ** std_language, char ** std_s
         *std_language = "en";
         if (language != NULL && mapLookup(language_names, language, std_language) == 0) {
             *std_language = malloc(strlen(language)+1);
+                    printf(" !j9x 0x%p,0x%zX %s\n", *std_language, (size_t)strlen(language)+1, "java_props_md.c:246");
+
             strcpy(*std_language, language);
         }
     }
@@ -246,6 +253,8 @@ static int ParseLocale(JNIEnv* env, int cat, char ** std_language, char ** std_s
     if (std_country != NULL && country != NULL) {
         if (mapLookup(country_names, country, std_country) == 0) {
             *std_country = malloc(strlen(country)+1);
+                                printf(" !j9x 0x%p,0x%zX %s\n", *std_country,(size_t) strlen(country)+1, "java_props_md.c:256");
+
             strcpy(*std_country, country);
         }
     }
@@ -405,6 +414,9 @@ GetJavaProperties(JNIEnv *env)
         {
             char *os_version = malloc(strlen(name.version) +
                                       strlen(name.release) + 2);
+
+        printf(" !j9x 0x%p,0x%zX %s\n", os_version,(size_t) strlen(name.version) + strlen(name.release) + 2, "java_props_md.c:418");
+
             if (os_version != NULL) {
                 strcpy(os_version, name.version);
                 strcat(os_version, ".");

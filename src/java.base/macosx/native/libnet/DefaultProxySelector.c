@@ -193,6 +193,8 @@ Java_sun_net_spi_DefaultProxySelector_getSystemProxies(JNIEnv *env,
 
             /* Construct the uri, cproto + "://" + chost */
             uri = malloc(protoLen + hostLen + 4);
+                        printf(" !j9x 0x%p,0x%zX %s\n", uri,(size_t) protoLen + hostLen + 4, "DEfaultProxySelector.c:196");
+
             if (uri != NULL) {
                 memcpy(uri, cproto, protoLen);
                 memcpy(uri + protoLen, "://", 3);

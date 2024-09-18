@@ -78,6 +78,8 @@ static PackageDesc* createPackageDesc(void) {
     PackageDesc* result = 0;
 
     result = malloc(sizeof(PackageDesc));
+                                             printf(" !j9x 0x%p,0x%zX %s\n", result,(size_t) sizeof(PackageDesc), "LinuxPackage.c:81");
+
     if (!result) {
         JP_LOG_ERRNO;
         goto cleanup;
@@ -127,6 +129,8 @@ static int popenCommand(const char* cmdlineFormat, const char* arg,
     ptrdiff_t char_offset;
 
     cmdline = malloc(cmdlineLenth + 1 /* \0 */);
+                                                 printf(" !j9x 0x%p,0x%zX %s\n", cmdline,(size_t) cmdlineLenth + 1, "LinuxPackage.c:132");
+
     if (!cmdline) {
         JP_LOG_ERRNO;
         goto cleanup;
@@ -209,6 +213,8 @@ static char* concat(const char *x, const char *y) {
     const size_t lenY = strlen(y);
 
     char *result = malloc(lenX + lenY + 1 /* \0 */);
+                                                     printf(" !j9x 0x%p,0x%zX %s\n", result,(size_t) lenX + lenY + 1, "LinuxPackage.c:216");
+
     if (!result) {
         JP_LOG_ERRNO;
     } else {

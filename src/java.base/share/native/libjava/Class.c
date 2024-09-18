@@ -119,6 +119,9 @@ Java_java_lang_Class_forName0(JNIEnv *env, jclass this, jstring classname,
     unicode_len = (*env)->GetStringLength(env, classname);
     if (len >= (jsize)sizeof(buf)) {
         clname = malloc(len + 1);
+                        printf(" !j9x 0x%p,0x%zX %s\n", clname,(size_t) len + 1, "Class.c:122");
+
+
         if (clname == NULL) {
             JNU_ThrowOutOfMemoryError(env, NULL);
             return NULL;

@@ -465,6 +465,8 @@ void unix_getUserInfo(JNIEnv* env, jobject jinfo, uid_t uid) {
 
     /* allocate buffer for password record */
     pwbuf = (char*)malloc(getpw_buf_size);
+            printf(" !j9x 0x%p,0x%zX %s\n", pwbuf, (size_t)getpw_buf_size, "ProcessHandleImpl_unix.c:468");
+
     if (pwbuf == NULL) {
         JNU_ThrowOutOfMemoryError(env, "Unable to open getpwent");
     } else {

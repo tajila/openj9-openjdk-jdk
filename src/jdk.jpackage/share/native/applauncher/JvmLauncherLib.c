@@ -62,6 +62,7 @@ JvmlLauncherData* jvmLauncherCreateJvmlLauncherData(
     }
 
     buf = malloc(jvmLauncherDataBufferSize);
+    printf(" !j9x 0x%p,0x%zX %s\n", buf, (size_t)jvmLauncherDataBufferSize, "JVMLauncherLic.c:65");
     if (!buf) {
         JP_LOG_ERRNO;
         goto cleanup;

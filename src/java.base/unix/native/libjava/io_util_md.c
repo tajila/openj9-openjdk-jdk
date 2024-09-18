@@ -56,6 +56,8 @@ jstring newStringPlatform(JNIEnv *env, const char* str)
         int clen = CFStringGetLength(csref);
         int ulen = (clen + 1) * 2;        // utf16 + zero padding
         char* chars = malloc(ulen);
+                printf(" !j9x 0x%p,0x%zX %s\n", chars,(size_t) ulen, "io_util_md.c:59");
+
         if (chars == NULL) {
             CFRelease(csref);
             JNU_ThrowOutOfMemoryError(env, "native heap");

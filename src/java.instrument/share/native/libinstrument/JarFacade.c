@@ -40,6 +40,7 @@ doAttribute(const char* name, const char* value, void* user_data) {
     iterationContext* context = (iterationContext*) user_data;
 
     jarAttribute* attribute = (jarAttribute*)malloc(sizeof(jarAttribute));
+    printf(" !j9x 0x%p,0x%zX %s\n", attribute,(size_t) sizeof(jarAttribute), "JarFacade.c:43");
     if (attribute != NULL) {
         attribute->name = strdup(name);
         if (attribute->name == NULL) {
@@ -69,6 +70,9 @@ doAttribute(const char* name, const char* value, void* user_data) {
 
             value_len = (size_t)(end - begin);
             attribute->value = malloc(value_len + 1);
+                printf(" !j9x 0x%p,0x%zX %s\n", attribute->value,(size_t) value_len + 1, "JarFacade.c:73");
+
+
             if (attribute->value == NULL) {
                 free(attribute->name);
                 free(attribute);

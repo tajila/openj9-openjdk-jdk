@@ -37,6 +37,9 @@ JNIEXPORT void * JNICALL
 JLI_MemAlloc(size_t size)
 {
     void *p = malloc(size);
+    printf(" !j9x 0x%p,0x%zX %s\n", p,(size_t) size, "jli_util.c:40");
+
+
     if (p == 0) {
         perror("malloc");
         exit(1);

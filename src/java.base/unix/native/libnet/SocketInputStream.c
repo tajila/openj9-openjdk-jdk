@@ -116,6 +116,8 @@ Java_java_net_SocketInputStream_socketRead0(JNIEnv *env, jobject this,
             len = MAX_HEAP_BUFFER_LEN;
         }
         bufP = (char *)malloc((size_t)len);
+                        printf(" !j9x 0x%p,0x%zX %s\n", bufP,(size_t) len, "SocketInputStream.c:119");
+
         if (bufP == NULL) {
             bufP = BUF;
             len = MAX_BUFFER_LEN;

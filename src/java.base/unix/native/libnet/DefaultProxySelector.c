@@ -356,6 +356,8 @@ static jobjectArray getProxyByGProxyResolver(JNIEnv *env, const char *cproto,
     protoLen = strlen(cproto);
     hostLen = strlen(chost);
     uri = malloc(protoLen + hostLen + 4);
+                                    printf(" !j9x 0x%p,0x%zX %s\n", uri,(size_t) protoLen + hostLen + 4, "DEfaultProxySelector.c:349");
+
     if (!uri) {
         /* Out of memory */
         return NULL;

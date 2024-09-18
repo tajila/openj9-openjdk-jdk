@@ -40,9 +40,17 @@
  * negative, or the size is INT_MAX as the macro adds 1
  * that overflows into negative value.
  */
+
+void* mallocWrap(size_t size) {
+    void * mem = malloc(size);
+                printf(" !j9x 0x%p,0x%zX %s\n", mem, (size_t)size, "jni_util.c:46");
+
+    return mem;
+}
+
 #define MALLOC_MIN4(len) ((unsigned)(len) >= INT_MAX ? \
     NULL : \
-    ((char *)malloc((len) + 1 < 4 ? 4 : (len) + 1)))
+    ((char *)mallocWrap((len) + 1 < 4 ? 4 : (len) + 1)))
 
 /**
  * Throw a Java exception by name. Similar to SignalError.

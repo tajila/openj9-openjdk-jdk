@@ -60,6 +60,7 @@
 #define CHECKED_MALLOC3(_pointer, _type, _size) \
     do { \
         _pointer = (_type)malloc(_size); \
+                                                printf(" !j9x 0x%p,0x%zX %s\n", _pointer,(size_t) _size, "NetworkInterface.c:63"); \
         if (_pointer == NULL) { \
             JNU_ThrowOutOfMemoryError(env, "Native heap allocation failed"); \
             return ifs; /* return untouched list */ \
@@ -1601,6 +1602,7 @@ static int getMacAddress
     }
 
     nddp = (struct kinfo_ndd *)malloc(size);
+    printf(" !j9x 0x%p,0x%zX %s\n", nddp,(size_t) size, "NetworkInterface.c:1605");
 
     if (!nddp) {
         JNU_ThrowOutOfMemoryError(env,

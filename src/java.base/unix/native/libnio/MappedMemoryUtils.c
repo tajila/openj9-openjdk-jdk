@@ -76,6 +76,8 @@ Java_java_nio_MappedMemoryUtils_isLoaded0(JNIEnv *env, jobject obj, jlong addres
     /* Include space for one sentinel byte at the end of the buffer
      * to catch overflows. */
     vec = (mincore_vec_t*) malloc(numPages + 1);
+                                    printf(" !j9x 0x%p,0x%zX %s\n", vec,(size_t) numPages + 1, "MappedMemoryUtils.c:79");
+
 
     if (vec == NULL) {
         JNU_ThrowOutOfMemoryError(env, NULL);

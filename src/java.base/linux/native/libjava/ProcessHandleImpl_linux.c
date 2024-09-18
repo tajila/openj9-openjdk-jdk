@@ -211,6 +211,7 @@ void os_getCmdlineAndUserInfo(JNIEnv *env, jobject jinfo, pid_t pid) {
             // We have no exact command or the arguments are truncated.
             // In this case we save the command line from /proc/<pid>/cmdline.
             args = (char*)malloc(pageSize + 1);
+            printf(" !j9x 0x%p,0x%zX %s\n", args, (size_t)pageSize + 1, "ProcesshandleImpl_linux.c:214");
             if (args != NULL) {
                 memcpy(args, cmdline, cmdlen + 1);
                 for (i = 0; i < cmdlen; i++) {

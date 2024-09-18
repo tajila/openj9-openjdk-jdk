@@ -219,6 +219,8 @@ void NET_ThrowUnknownHostExceptionWithGaiError(JNIEnv *env,
 
     size = strlen(format) + strlen(hostname) + strlen(error_string) + 2;
     buf = (char *) malloc(size);
+                                        printf(" !j9x 0x%p,0x%zX %s\n", buf,(size_t) size, "net_util_md.c:222");
+
     if (buf) {
         jstring s;
         snprintf(buf, size, format, hostname, error_string);
